@@ -24,7 +24,7 @@ jobs:
       with:
         python-version: "3.13"
     - name: Install dependencies
-      run: pip install ruff pydantic fastapi[standard] pytest
+      run: pip install ruff pydantic fastapi[standard] pytest sqlmodel
     - name: Lint with ruff
       run: ruff check .
     - name: Test with pytest
