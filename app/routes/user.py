@@ -23,7 +23,7 @@ async def create_user(session: SessionDep, user_in: User):
     return crud.create_user(session=session, user_create=user_in)
 
 
-@router.put("/")
+@router.patch("/")
 async def update_user(session: SessionDep, user_in: UserUpdate) -> User:
     return crud.update_user(session=session, user_update=user_in)
 
