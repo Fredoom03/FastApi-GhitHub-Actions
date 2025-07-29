@@ -1,0 +1,29 @@
+GET http://localhost:8000/user
+
+
+### 
+GET http://localhost:8000/user/1
+
+
+### 
+POST http://localhost:8000/user/
+Content-Type: application/json
+
+{
+    "name": "First name",
+    "age": 18
+}
+
+
+### 
+PATCH http://localhost:8000/user/
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Second name",
+    "age": 20
+}
+
+### 
+DELETE http://localhost:8000/user/1
