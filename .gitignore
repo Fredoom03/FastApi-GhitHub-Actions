@@ -11,4 +11,4 @@ wheels/
 .venv
 
 # Database 
-person.db
+*.db
