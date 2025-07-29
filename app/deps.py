@@ -2,7 +2,14 @@ from typing import Annotated, Generator
 from fastapi import Depends
 from sqlmodel import create_engine, Session, SQLModel
 
-engine = create_engine("sqlite:///person.db")
+from dotenv import load_dotenv
+import os 
+
+load_dotenv()
+
+DEV_URL = os.environ.get("dev_url")
+
+engine = create_engine(DEV_URL)
 SQLModel.metadata.create_all(engine)
 
 

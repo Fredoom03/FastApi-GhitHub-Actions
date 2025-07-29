@@ -1,15 +1,23 @@
-# External Modules
-from sqlmodel import SQLModel, create_engine, Session, StaticPool
-from fastapi.testclient import TestClient
-from typing import Generator
-import pytest 
-
 # Internal Modules
 from app.deps import get_session
 from app.main import app
 
+# External Modules
+from sqlmodel import SQLModel, create_engine, Session, StaticPool
+from fastapi.testclient import TestClient
+from dotenv import load_dotenv
+from typing import Generator
+import pytest 
+import os 
+
+load_dotenv()
+
+TEST_URL = os.environ.get("test_url")
+
+
+
 engine = create_engine(
-    "sqlite:///:memory:",
+    TEST_URL,
     connect_args={"check_same_thread": False},
     poolclass=StaticPool
 )
