@@ -14,6 +14,9 @@ def get_users(session: SessionDep) -> UserPublic:
     select_stmt = select(User)
 
     user_list = session.exec(select_stmt).all()
+    
+    if not user_list:
+        user_list = []
 
     return UserPublic(count=len(user_list), data=user_list)
 
