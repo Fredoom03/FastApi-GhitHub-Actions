@@ -5,16 +5,11 @@ from app.main import app
 # External Modules
 from sqlmodel import SQLModel, create_engine, Session, StaticPool
 from fastapi.testclient import TestClient
-from dotenv import load_dotenv
 from typing import Generator
 import pytest 
-import os 
-
-load_dotenv()
-
-TEST_URL = os.environ.get("test_url")
 
 
+TEST_URL = "sqlite:///test.db"
 
 engine = create_engine(
     TEST_URL,
